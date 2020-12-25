@@ -1,164 +1,99 @@
-body{
-    font: Arial,Helvetica,sans-serif;
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-#container{
-    width: 1050px;
-    /*border: 1px solid grey;*/
-    height:100px;
-    margin: 0 auto;
+body
+{
+    font-family: 'Montserrat',sans-serif;
+}
+.app
+{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+header h1
+{
+    margin: 50px 0px 30px 0px;
+    text-align: center;
+    font-size: 40px;
+}
+header p
+{
+    font-size: 20px;
+}
+.pads
+{
+    background: lightblue;
+    width: 100%;
+    display: flex;
+}
+.pads>div
+{
+    height: 100px;
+    width: 100px;
+    flex: 1;
+}
+.pad1
+{
+    background: #604394;
+}
+.pad2
+{
+    background: #d36060;
+}
+.pad3
+{
+    background: #03fc88;
+}
+.pad4
+{
+    background: #34ebe8;
+}
+.pad5
+{
+    background: #4287f5;
+}
+.pad6
+{
+    background: #f099e7;
+}
+.visual>div 
+{
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    bottom: 0%;
+    left: 20%;
+    bottom: 0%;
+    z-index: -1;
+}
+@keyframes jump
+{
+    0%{
+        bottom: 0%;
+        left: 20%;
+    }
+    50%{
+        bottom: 50%;
+        left: 50%;
+    }
+    100%{
+        bottom: 0%;
+        left: 80%;
+    }
 }
 
-#header{
-    height: 100px;
-    background-color: cadetblue;
-    padding: 10px 0px;
-}
-#brand{
-    float: left;
-}
-h1 a
+.visual>div
 {
-    font-size: 50px;
-    font-weight:100;
-    color: black;
-    text-decoration: none;
-}
-#searchbox{
-    float: right;
-    background: linear-gradient();
-    width: 400px;
-    height:60px;
-    padding: 20px 20px 0px 20px;
-    margin-top: 10px;
-}
-.text{
-    float: left;
-    width: 250px;
-    padding: 5px;
-    font-size: 15px;
-    color: #5360AC;
-    background: white url(images/search.png) right center no-repeat;
-    border: 1px solid;
-}
-.submit{
-    float: right;
-    padding: 5px;
-    font-weight: bold;
-    color: white;
-    background:blue;
-    font-size: 15px;
-    border: 1px solid;
-}
-.clear{
-    clear: both;
-}
-#menu
-{
-    height: 80px;
-    background: linear-gradient();
-}
-ul{
-    list-style: none;
-}
-#menu ul li
-{
-    float:left;
-    padding:1px 38px;
-    color: black;
-    background:cadetblue;
-}
-#menu ul li a
-{
-    width: 400px;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 15px;
-    color: black;
-    line-height: 30px;
-    transition: font-size 0.3s ease;
-}
-#menu ul li a:hover,#menu ul li a.active
-{
-    font-size: 20px;
-    font-weight:bold;
-    color: black;
-}
-#introduction
-{
-    background-color: cadetblue;
-    font-size:30px;
-    padding: 60px;
-    margin:30px 0;
-    margin-top:2px;
-}
-#introduction h3
-{
-    font-size: 45px;
-    color: black;
-    font-weight: normal;
-}
-.sidebar
-{
-    width: 300px;
-    height: 800px;
-    border: 1px solid grey;
-    border-radius: 20px;
-}
-#leftsidebar
-{
-    float: left;
-    width: 500px;
-    font-size:30px;
-    color: cadetblue;
-}
-.sidebar ul
-{
-    padding-top: 8px;
-}
-#leftsidebar ul li{
-    font-size: 40px;
-    padding-bottom:6px;
-    padding-left:5px;
-    color: black;
-    padding-left:30px;
-    list-style-image: url(images/right%20arrow.png)
-}
-.sidebar ul li a
-{
-    text-decoration: none;
-    font-size: 20px;
-}
-.leftsidebar h3
-{
-    font-size: 5px;
-    color: black;
-}
-#rightsidebar
-{
-    float: right;
-    width: 500px;
-    font-size: 30px;
-    color: cadetblue;
-    
-}
-#rightsidebar ul li
-{
-    font-size: 20px;
-    color: black;
-    padding-top: 5px;
-    padding-bottom: 20px;
-    padding-right: 70px;
-    list-style-image: url(images/tick.png)
-}
-.rightsidebar h3
-{
-    font-size: 5px;
-    color: black;
-}
-.footer
-{
+    position: absolute;
     height: 50px;
-    background:#5f9ea0;
-    padding: 10px 20px;
-    margin-top: 10px;
+    width: 50px;
+    border-radius: 50%;
+    bottom: 0%;
 }
