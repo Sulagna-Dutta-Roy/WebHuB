@@ -1,32 +1,140 @@
-window.addEventListener("load",() => {
-    const sounds=document.querySelectorAll(".sound");
-    const pads=document.querySelectorAll(".pads div");
-    const visual=document.querySelector(".visual");
-    const colors=[
-        "#604394",
-        "#d36060",
-        "#03fc88",
-        "#34ebe8",
-        "#4287f5",
-        "#f099e7"
-    ];
- //lets get going with thue sound here
-    pads.forEach((pad,index) => { 
-        pad.addEventListener('click',function(){
-            sounds[index].currentTime=0;
-            sounds[index].play();
+var playing=false;
+var score;
+var action;
+var timeremaining;
+var correctAnswer
+
+// if we are click start/reset
+document.getElementById("startreset").onclick=
+function(){
+    //if we are playing
+    if(playing==true)
+        {
+           location.reload();
+        }else
+            //if we are not playing //set score to 0
+        { 
+            //change mode to playing
+            playing=true;
             
-            createBubbles(index);
-    });
-}); 
-//create a function
-const createBubbles=(index)=>{
-    const bubble=document.createElement("div");
-    visual.appendChild(bubble);
-    bubble.style.backgroundColor=colors[index];
-    bubble.style.animation="jump is ease";
-    bubble.addEventListener('animationed',function(){
-        visual.removeChild(this);
-    });
-  };
-});
+            //set score to 0
+            score=1;
+            
+document.getElementById("scorevalue").innerHTML=score;
+            //show countdown box
+            show("timeremaining");
+            timeremaining=60;
+
+document.getElementById("timeremainingvalue").innerHTML=timeremaining;
+            
+            //hide game over box
+            hide("gameOver");
+            
+            //change button to reset
+
+document.getElementById("startreset").innerHTML
+="Reset Game";
+        
+            //start countdown
+            startCountdown();
+            
+            
+            //generate a new question Q&A
+            
+            generateQA();
+    }
+}
+
+
+for(i=1;i<5;i++){
+document.getElementById("box"+i).onclick=function(){
+    if(playing==true){
+        if(this.innerHTML==correctAnswer){
+            score++;
+            
+document.getElementById("scorevalue").innerHTML=score;
+            
+            //hide wrong box 
+            
+            hide("wrong");
+            show("correct");
+            setTimeout(function(){
+                hide("correct");
+            },1000);
+        }
+        //generate new Q & A
+        generateQA();
+        else{
+            //wrong answer
+            hide("correct");
+            show("wrong");
+            setTimeout(function(){
+                hide("wrong");
+            },1000);
+        }
+    }
+ }
+
+}
+//functions
+
+
+
+//start counter
+function startCountdown(){
+    action = setInterval(function(){
+        timeremaining-=1;
+        
+document.getElementById("timeremainingvalue").innerHTML
+=timeremaining; 
+        if(timeremaining==0){
+            stoptCountdown();
+            show("gameover");
+            
+document.getElementById("gameover").innerHTML="<p>Game Over</p><p>Your Score is"+score+"</p>";
+            hide("timeremaining");
+            hide("correct");
+            hide("wrong");
+            playing=false;
+document.getElementById("startreset").innerHTML="Start Game";
+        }
+    },1000);
+}
+
+//stop counter
+function stopCountdown(){
+    clearInterval(action);
+        }
+//hide an element
+function hide(Id){
+    document.getElementById("timeremaining").style.display="block";
+}
+function show(Id){
+    document.getElementById("timeremaining").style.display="none";
+}
+function generateQA(){
+    var x=1+Math.round(10*Math.random());
+    var y=1+Math.round(10*Math.random());
+    var correctAnswer=x+y;
+    
+document.getElementById("question").innerHTML=x+"x"+y;
+    var correctPosition=1+Math.round(3+Math.random());
+    
+document.getElementById("box"+correctPosition).innerHTML=correctAnswer;   
+    
+    
+   var answers=[correctAnswer,WA1,WA2,WA3]; 
+    
+    for(i=1;i<5;i++){
+        if(i! = correctPosition){
+            var wrongAnswer;
+            do{
+                var wrongAnswer=(1+Math.round(10*Math.random()))*1+Math.round(10*Math.random());
+            }
+            while(answers.indexOf(wrongAnswer)>-1)
+
+document.getElementById("box"+i).innerHTML=wrongAnswer;
+            answers.push(wrongAnswer);
+        }
+    }    
+}
