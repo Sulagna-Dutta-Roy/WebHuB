@@ -1,41 +1,47 @@
 <!DOCTYPE html>
-<html Lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device_width,initial=scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https//fonts.ggoleapis.com/css?family=Montserrat">
-    <link rel="stylesheet" href="style.css">
-    <title>Tap Music</title>
-</head>
-<body>
-    <div class="app">
-        <header>
-            <h1>Tap Music</h1>
-            <p>Make Music with only one tap</p>
-        </header>
-        <div class="visual"></div>
-        <div class="pads">
-            <div class="pad1">
-                 <audio class="sound" src="song1.mp3.mp3"></audio>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Maths Game</title>
+        <meta name="viewport" content="width= device-width,initial-scale=1,user-scalable=yes">
+        <link rel="stylesheet" href="style.css" type="text/css">
+    </head>
+    <body>
+        <div id="container">
+            <div id="score">
+                Score:<span id="scorevalue">0</span>
             </div>
-            <div class="pad2">
-                 <audio class="sound" src="song2.mp3.mp3"></audio>
+            <div id="correct">
+                Correct
             </div>
-            <div class="pad3">
-                 <audio class="sound" src="song3.mp3.mp3"></audio>
+            <div id="wrong">
+                Try Again
             </div>
-            <div class ="pad4">
-                 <audio class="sound" src="song4.mp3.mp3"></audio>
+            <div id="question">10*2
             </div>
-            <div class="pad5">
-                <audio class="sound" src="song5.mp3.mp3"></audio>
+            <div id="instruction">
+                Click on the answer
             </div>
-            <div class="pad6"> 
-                <audio class="sound" src="song6.mp3.mp3"></audio>
+            <div id="choices">
+                <div id="box1" class="box">20
+                </div>
+                <div id="box2" class="box">40
+                </div>
+                <div id="box3" class="box">48
+                </div>
+                <div id="box4" class="box">50
+                </div>
             </div>
+            <div id="startreset">
+                Start Game
+            </div>
+            <div id="timeremaining">
+                Time Remaining:<span id="timeremaining">60</span>Sec
+            </div>
+            <div id="gameover">
+            
+            </div>
+            <script src="index.js"></script>
         </div>
-    </div>
-    <script src="index.js" ></script>
-</body>
+    </body>
 </html>
